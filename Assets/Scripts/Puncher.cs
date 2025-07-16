@@ -30,7 +30,7 @@ public class Puncher : MonoBehaviour
             RaycastHit hit;
             bool hitHead = false;
             Vector2 hitUV = Vector2.zero;
-            if (Physics.Raycast(ray, out hit, 100f))
+            if (Physics.Raycast(ray, out hit))
             {
                 DamageReceiver receiver = hit.collider.GetComponent<DamageReceiver>();
                 if (receiver != null && receiver == _targetDamageable)
@@ -41,11 +41,10 @@ public class Puncher : MonoBehaviour
             }
             if (hitHead)
             {
-                float swipePower = Mathf.Clamp(swipe.magnitude * 5f, 0f, 100f);
                 float vertical = swipe.y;
                 float horizontal = -swipe.x;
                 Vector3 localSwipeDir = new Vector3(vertical, 0, horizontal).normalized;
-                _targetDamageable.ApplyDamage(Mathf.RoundToInt(swipePower), localSwipeDir);
+                _targetDamageable.ApplyDamage(swipe.magnitude, localSwipeDir);
                 if (swipe.magnitude > 0f)
                 {
                     if (_hitEffect)

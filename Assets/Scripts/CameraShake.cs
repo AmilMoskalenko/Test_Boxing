@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    [Header("Shake Settings")]
+    [SerializeField] private float _shakeAngle;
+    [SerializeField] private float _shakeDuration;
+    [SerializeField] private float _shakeMagnitude;
+
     public static CameraShake Instance;
 
     private Quaternion _originalRotation;
@@ -13,19 +18,20 @@ public class CameraShake : MonoBehaviour
         _originalRotation = transform.localRotation;
     }
 
-    public void Shake(float duration, float magnitude)
+    public void Shake()
     {
-        StartCoroutine(ShakeCoroutine(duration, magnitude));
+        StartCoroutine(ShakeCoroutine());
     }
 
-    private IEnumerator ShakeCoroutine(float duration, float magnitude)
+    private IEnumerator ShakeCoroutine()
     {
         float elapsed = 0f;
-        while (elapsed < duration)
+        while (elapsed < _shakeDuration)
         {
-            float damper = 1.0f - Mathf.Clamp01(elapsed / duration);
-            float currentMagnitude = magnitude * damper;
-            Vector3 shakeEuler = new Vector3(0f, 0f, Random.Range(-20f, 20f) * currentMagnitude);
+            float damper = 1.0f - Mathf.Clamp01(elapsed / _shakeDuration);
+            float currentMagnitude = _shakeMagnitude * damper;
+            float shakeZ = Random.Range(-_shakeAngle, _shakeAngle) * currentMagnitude;
+            Vector3 shakeEuler = new Vector3(0f, 0f, shakeZ);
             transform.localRotation = _originalRotation * Quaternion.Euler(shakeEuler);
             elapsed += Time.deltaTime;
             yield return null;
