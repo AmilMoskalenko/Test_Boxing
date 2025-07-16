@@ -1,7 +1,9 @@
 # Test
 Test game for Manerai
 
-(https://img.youtube.com/vi/nSCHGfwnhlg/0.jpg)](https://www.youtube.com/watch?v=nSCHGfwnhlg)
-(https://img.youtube.com/vi/4LbBbQ9P7l8/0.jpg)](https://www.youtube.com/watch?v=4LbBbQ9P7l8)
+Геймплей 1
+[![Смотреть видео на YouTube](https://img.youtube.com/vi/nSCHGfwnhlg/0.jpg)](https://www.youtube.com/watch?v=nSCHGfwnhlg)
+Геймплей 2
+[![Смотреть видео на YouTube](https://img.youtube.com/vi/4LbBbQ9P7l8/0.jpg)](https://www.youtube.com/watch?v=4LbBbQ9P7l8)
 
 В данном тестовом задании реализована механика ударов по голове. Удары производятся посредством свайпа по экрану. Удар считается только если финальная точка свайпа рэйкастом попадает в меш головы, то есть случайные свайпы по экрану за удары не считаются. Анимация отклонений головы реализована через DoTween анимации, а именно DOPunchRotation. Для смачности реализован vfx эффект и звук удара. Также добавлена тряска камеры. Для иммерсивности при каждом ударе на голове появляются пятна крови, так нанесение урона становится заметным.
