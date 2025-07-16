@@ -370,9 +370,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963194228}
+  - component: {fileID: 963194229}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1235,8 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _headRenderer: {fileID: 7071182761446987887}
   _bloodSpotTexture: {fileID: 2800000, guid: a13b2c8861b8da2409a0c28c47778839, type: 3}
-  _punchMaxAmount: 100
-  _punchScale: 0.25
+  _punchScale: 0.05
   _spotSize: 10
   _faceUvX: 0.25
   _faceUvY: 0.21

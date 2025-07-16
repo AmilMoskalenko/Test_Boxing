@@ -9,10 +9,12 @@ public class Puncher : MonoBehaviour
     private AudioSource _audioSource;
     private Vector2 _mouseStart;
     private bool _isSwiping;
+    private Camera _mainCamera;
 
     void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
+        _mainCamera = Camera.main;
     }
 
     void Update()
@@ -26,7 +28,7 @@ public class Puncher : MonoBehaviour
         {
             Vector2 mouseEnd = Input.mousePosition;
             Vector2 swipe = mouseEnd - _mouseStart;
-            Ray ray = Camera.main.ScreenPointToRay(mouseEnd);
+            Ray ray = _mainCamera.ScreenPointToRay(mouseEnd);
             RaycastHit hit;
             bool hitHead = false;
             Vector2 hitUV = Vector2.zero;
